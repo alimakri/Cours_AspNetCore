@@ -23,6 +23,22 @@ namespace AdventureWorks.Data
             Cmd.CommandType = System.Data.CommandType.Text;
         }
 
+        internal bool Purge_Log()
+        {
+            var requete = $@"delete [Logs]";
+            try
+            {
+                Cmd.CommandText = requete;
+                Cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                Serilog.Log.Error(ex, $"Repository.Purge_Log {requete}");
+                return false;
+            }
+            return true;
+        }
+
         internal List<LogData> Get_log()
         {
             var requete = $@"select [Message], Exception, TimeStamp, Level from [Logs] order by [TimeStamp] desc"; // where level='Error'";

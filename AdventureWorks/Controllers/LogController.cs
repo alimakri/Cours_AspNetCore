@@ -16,5 +16,10 @@ namespace AdventureWorks.Controllers
         {
             return View(Repo.Get_log());
         }
+        public IActionResult Purge()
+        {
+            Repo.Purge_Log();
+            return RedirectToAction("Index");
+        }
     }
 }
