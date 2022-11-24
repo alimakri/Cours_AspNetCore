@@ -41,7 +41,7 @@ namespace AdventureWorks.Data
 
         internal List<LogData> Get_log()
         {
-            var requete = $@"select [Message], Exception, TimeStamp, Level from [Logs] order by [TimeStamp] desc"; // where level='Error'";
+            var requete = $@"select [Message], MessageTemplate, TimeStamp, Level from [Logs] order by [TimeStamp] desc"; // where level='Error'";
             var data = new List<LogData>();
             SqlDataReader rd = null;
             try
