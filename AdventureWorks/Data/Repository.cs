@@ -53,7 +53,7 @@ namespace AdventureWorks.Data
                     data.Add(new LogData
                     {
                         Message = rd.GetString(0),
-                        MessageException = rd["Exception"] as string,
+                        MessageTemplate = rd.GetString(1),
                         TimeStamp = rd.GetDateTime(2),
                         Level = rd.GetString(3)
                     });
